@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Walentynki</title>
+        <style>
+            :root {
+                font-family:
+                    "Comic Sans MS", "Chalkboard SE", "Comic Neue", cursive,
+                    system-ui, sans-serif;
+                line-height: 1.5;
+                font-weight: 400;
+
+                color-scheme: light;
+                color: #ff69b4;
+                background: linear-gradient(
+                    135deg,
+                    #ffe4e1 0%,
+                    #ffc0cb 50%,
+                    #ffb6c1 100%
+                );
+
+                font-synthesis: none;
+                text-rendering: optimizeLegibility;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                display: flex;
+                place-items: center;
+                min-width: 320px;
+                min-height: 100vh;
+            }
+
+            #app {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 2rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+            }
+
+            #rive-canvas {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+            }
+
+            .valentine-button {
+                background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+                color: white;
+                border: none;
+                padding: 1em 2em;
+                font-size: 1.25em;
+                font-weight: 600;
+                border-radius: 50px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+                font-family: inherit;
+            }
+
+            .valentine-button:hover {
+                transform: translateY(-3px) scale(1.05);
+                box-shadow: 0 6px 25px rgba(255, 20, 147, 0.6);
+            }
+
+            .valentine-button:active {
+                transform: translateY(-1px) scale(1.02);
+            }
+
+            @media (max-width: 600px) {
+                .valentine-button {
+                    font-size: 1em;
+                    padding: 0.8em 1.5em;
+                }
+
+                #rive-canvas {
+                    max-width: 350px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="container">
+                <canvas id="rive-canvas"></canvas>
+                <button id="valentine-btn" class="valentine-button">
+                    Czy zostaniesz moją walentynką?
+                </button>
+            </div>
+        </div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>
