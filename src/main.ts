@@ -172,11 +172,13 @@ const btn = document.getElementById("valentine-btn") as HTMLButtonElement;
 btn.addEventListener("mousedown", () => {
   closeness.target = 1;
   isButtonHeld = true;
+  updateEyeTargetHover();
 });
 
 btn.addEventListener("mouseup", () => {
   closeness.target = 0;
   isButtonHeld = false;
+  updateEyeTargetHover();
 });
 
 btn.addEventListener("mouseleave", () => {
@@ -194,15 +196,17 @@ btn.addEventListener("touchstart", (e) => {
   e.preventDefault();
   closeness.target = 1;
   isButtonHeld = true;
+  updateEyeTargetHover();
 });
 
 btn.addEventListener("touchend", () => {
   closeness.target = 0;
   isButtonHeld = false;
+  updateEyeTargetHover();
 });
 
 function deriveRandomEyeTarget() {
-  if (!isHovered) {
+  if (!isHovered && !isButtonHeld) {
     const angle = Math.random() * Math.PI * 2;
     eyeTargetX.target = Math.cos(angle) * 200;
     eyeTargetY.target = Math.sin(angle) * 200;
@@ -210,7 +214,7 @@ function deriveRandomEyeTarget() {
 }
 
 function updateEyeTargetHover() {
-  if (isHovered) {
+  if (isHovered || isButtonHeld) {
     eyeTargetX.target = 0;
     eyeTargetY.target = 0;
   } else {
