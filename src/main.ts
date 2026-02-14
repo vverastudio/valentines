@@ -3,7 +3,7 @@ import { Rive } from "@rive-app/canvas";
 const canvas = document.getElementById("rive-canvas") as HTMLCanvasElement;
 
 const rive = new Rive({
-  src: "/animation.riv",
+  src: "/valentines/animation.riv",
   canvas: canvas,
   autoplay: true,
   onLoad: () => {
